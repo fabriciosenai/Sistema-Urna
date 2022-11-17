@@ -11,7 +11,7 @@ namespace DAL
             SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
             SqlCommand cmd = cn.CreateCommand();
             cmd.CommandText = @"INSERT INTO Eleicao(Ano, Turno) 
-                              VALUES(@Titulo, @Nome)";
+                              VALUES(@Ano, @Turno)";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@Ano", _eleicao.Ano);
             cmd.Parameters.AddWithValue("@Turno", _eleicao.Turno);

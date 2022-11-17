@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UiTerminalWindows
 {
-    public partial class FormCadastro_De_Canditado : Form
+    public partial class FormCadastroCandidato : Form
     {
-        public FormCadastro_De_Canditado()
+        public FormCadastroCandidato()
         {
             InitializeComponent();
         }

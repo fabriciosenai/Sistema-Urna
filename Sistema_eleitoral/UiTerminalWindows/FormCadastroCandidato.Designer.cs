@@ -1,6 +1,6 @@
 ﻿namespace UiTerminalWindows
 {
-    partial class FormCadastro_De_Canditado
+    partial class FormCadastroCandidato
     {
         /// <summary>
         /// Required designer variable.
