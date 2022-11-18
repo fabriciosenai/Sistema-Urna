@@ -13,17 +13,21 @@ namespace BLL
     {
         public void Inserir(Eleitor _eleitor)
         {
-         /*   if (_eleitor.Nome.Length <= 2)
+            if (_eleitor.Nome.Length <= 2)
             {
                 throw new Exception("O nome do eleitor deve ter mais de 2 caracter");
-            }*/
+            }
             EleitorDAL eleitorDAL = new EleitorDAL();
             eleitorDAL.Inserir(_eleitor);
         }
-        public void Excluir(Eleitor _eleitor)
+        public void Excluir(int _id)
         {
             EleitorDAL eleitorDAL = new EleitorDAL();
-            eleitorDAL.Excluir(_eleitor);
+            eleitorDAL.Excluir(_id);
+        }
+        public void Excluir(Eleitor _eleitor)
+        {
+            Excluir(_eleitor.id);
         }
         public void Alterar(Eleitor _eleitor)
         {

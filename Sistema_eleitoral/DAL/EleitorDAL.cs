@@ -33,18 +33,22 @@ namespace DAL
                 cmd.Connection.Close();
             }
         }
-        public void Excluir(Eleitor _eleitor)
+        public void Excluir(int _id)
         {
             SqlConnection cn = new SqlConnection(Conexao.StringDeConexao);
             SqlCommand cmd = cn.CreateCommand();
             try
             {
                 cmd.CommandText = "DELETE FROM Eleitor WHERE Id = @Id";
-                cmd.Parameters.AddWithValue("@Id", _eleitor.id);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", _id);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
             }
             finally
             {
-                cmd.Connection.Close();
+                cn.Close();
             }
         }
         public void Alterar(Eleitor _eleitor)
@@ -60,7 +64,8 @@ namespace DAL
             {
                 ///salvaras
                 da.SelectCommand = cn.CreateCommand();
-                da.SelectCommand.CommandText = "SELECT Id, Nome, Titulo, Votou, FROM Eleitor WHERE Titulo = @Titulo";
+                //SELECT Id, nome, Titulo, Votou FROM Eleitor where Titulo = @titulo
+                da.SelectCommand.CommandText = "SELECT Id, nome, Titulo, Votou FROM Eleitor where Titulo = @titulo";
                 da.SelectCommand.CommandType = CommandType.Text;
                 da.SelectCommand.Parameters.AddWithValue("@Titulo", _titulo);
                 cn.Open();
