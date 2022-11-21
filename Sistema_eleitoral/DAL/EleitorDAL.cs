@@ -65,9 +65,9 @@ namespace DAL
                 ///salvaras
                 da.SelectCommand = cn.CreateCommand();
                 //SELECT Id, nome, Titulo, Votou FROM Eleitor where Titulo = @titulo
-                da.SelectCommand.CommandText = "SELECT Id, nome, Titulo, Votou FROM Eleitor where Titulo = @titulo";
+                da.SelectCommand.CommandText = "SELECT Id, nome, Titulo, Votou FROM Eleitor where Titulo LIKE @titulo";
                 da.SelectCommand.CommandType = CommandType.Text;
-                da.SelectCommand.Parameters.AddWithValue("@Titulo", _titulo);
+                da.SelectCommand.Parameters.AddWithValue("@Titulo", "%" + _titulo + "%");
                 cn.Open();
                 da.Fill(dt);
                 return dt;
